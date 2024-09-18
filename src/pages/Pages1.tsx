@@ -1,22 +1,33 @@
-
+import { Link } from "react-router-dom";
 
 function Pages1() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      address: event.target[0].value,
+      type: event.target[1].value,
+      line1: event.target[2].value,
+      line2: event.target[3].value,
+      city: event.target[4].value,
+      zip: event.target[5].value,
+    };
+    localStorage.setItem('businessInfo', JSON.stringify(formData)); 
+  };
+
   return (
-    <div className="container mx-auto p-4">
+    <div className="max-w-[410px]">
       <h1 className="text-xl font-bold mb-4">Business Information</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Business address</label>
           <select className="border rounded p-2 w-full">
             <option>Registered business address</option>
-            {/* Add more options as needed */}
           </select>
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Type</label>
           <select className="border rounded p-2 w-full">
             <option>Type of business</option>
-            {/* Add more options as needed */}
           </select>
         </div>
         <div className="mb-4">
@@ -26,7 +37,9 @@ function Pages1() {
           <input type="text" placeholder="City" className="border rounded p-2 w-full mb-2" />
           <input type="text" placeholder="Zip" className="border rounded p-2 w-full" />
         </div>
-        <button type="submit" className="bg-blue-500 text-white rounded p-2 w-full">Continue →</button>
+        <Link to="/pages2">
+          <button type="submit" className="bg-purple-500 text-white rounded p-2 w-full">Continue →</button>
+        </Link>
       </form>
     </div>
   );
