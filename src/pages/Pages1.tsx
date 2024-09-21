@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
 function Pages1() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+
     const formData = {
       address: event.target[0].value,
       type: event.target[1].value,
