@@ -6,12 +6,12 @@ function Pages1() {
 
 
     const formData = {
-      address: event.target[0].value,
-      type: event.target[1].value,
-      line1: event.target[2].value,
-      line2: event.target[3].value,
-      city: event.target[4].value,
-      zip: event.target[5].value,
+      address: e.target[0].value,
+      type: e.target[1].value,
+      line1: e.target[2].value,
+      line2: e.target[3].value,
+      city: e.target[4].value,
+      zip: e.target[5].value,
     };
     localStorage.setItem('businessInfo', JSON.stringify(formData)); 
   };
